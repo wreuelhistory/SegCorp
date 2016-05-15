@@ -50,8 +50,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="model\BaseController.cs" />
-    <Compile Include="model\SDBC.cs" />
+    <Compile Include="model\BancoDeDados.cs" />
     <Compile Include="ModuloController.cs" />
+    <Compile Include="ModuloFuncionalidadeController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

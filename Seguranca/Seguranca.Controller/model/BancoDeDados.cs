@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Seguranca.Controller.model
 {
-    public class SDBC
+    public class BancoDeDados
     {
-        public SDBC()
+        public BancoDeDados()
         { }
 
         public static SegurancaDBContext Instance

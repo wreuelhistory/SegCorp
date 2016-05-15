@@ -19,6 +19,11 @@ namespace Seguranca.Entidades
             ModuloFuncionalidade = new HashSet<ModuloFuncionalidade>();
         }
 
+        public Modulo(int codigo, string descricao)
+        {
+            ModuloCodigo = codigo;
+            ModuloDescricao = descricao;
+        }
     }
 }
 

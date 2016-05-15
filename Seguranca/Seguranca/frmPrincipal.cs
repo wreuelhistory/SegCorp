@@ -22,5 +22,10 @@ namespace Seguranca
         {
             UtilForm.abreForm(new frmModulos(), this);
         }
+
+        private void funcionalidadesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UtilForm.abreForm(new frmFuncionalidade(), this);
+        }
     }
 }

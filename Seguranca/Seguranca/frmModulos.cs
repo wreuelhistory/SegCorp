@@ -20,7 +20,7 @@ namespace Seguranca
             InitializeComponent();
         }
 
-        ModuloController moduloController = new ModuloController(SDBC.Instance);
+        ModuloController moduloController = new ModuloController(BancoDeDados.Instance);
         Modulo modulo;
         List<Modulo> listaModulos;
 
@@ -44,7 +44,7 @@ namespace Seguranca
             modulo.ModuloDescricao = txtDescricao.Text.Trim();
             moduloController.Adicionar(modulo);
             txtDescricao.Clear();
-            TratamentoMensagens.mensagemSucesso("Módulo Inserido com Sucesso");
+            TratamentoMensagens.sucesso("Módulo Inserido com Sucesso");
             carregarGridView();
         }
     }

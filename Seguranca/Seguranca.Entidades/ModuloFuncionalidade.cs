@@ -16,9 +16,9 @@ namespace Seguranca.Entidades
         public int ModuloFuncionalidadeCodigo { get; set; }
 
         public int ModuloCodigo { get; set; }
-        public string FuncionalidadeDescrica { get; set; }
+        public string FuncionalidadeDescricao { get; set; }
         public string FormDescricao { get; set; }
-        public string ControleDescricao { get; set; }
+        //public string? ControleDescricao { get; set; }
 
         public virtual Modulo Modulo { get; set; }
 
