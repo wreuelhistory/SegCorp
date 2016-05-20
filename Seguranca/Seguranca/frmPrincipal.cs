@@ -18,7 +18,7 @@ namespace Seguranca
             InitializeComponent();
         }
 
-        private void módulosToolStripMenuItem_Click(object sender, EventArgs e)
+        private void modulosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             UtilForm.abreForm(new frmModulos(), this);
         }
@@ -27,5 +27,6 @@ namespace Seguranca
         {
             UtilForm.abreForm(new frmFuncionalidade(), this);
         }
+               
     }
 }
