@@ -7,8 +7,8 @@
     <ProjectGuid>{88E28F66-2C50-472F-931F-207024D123EB}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SegurencaComand</RootNamespace>
-    <AssemblyName>SegurencaComand</AssemblyName>
+    <RootNamespace>SegurancaComand</RootNamespace>
+    <AssemblyName>SegurancaComand</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -52,6 +52,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FuncionalidadeOperacoes.cs" />
+    <Compile Include="Menu.cs" />
+    <Compile Include="ModuloOperacoes.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

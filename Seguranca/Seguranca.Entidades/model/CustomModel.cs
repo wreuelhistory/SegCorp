@@ -11,7 +11,7 @@ namespace Seguranca.Entidades.model
 {
     public class CustomModel
     {
-        public static List<string> getPrimaryKey(Type cls)
+        public static List<string> GetPrimaryKey(Type cls)
         {
             List<string> result = new List<string>();
             System.Object[] attributes;
@@ -27,7 +27,7 @@ namespace Seguranca.Entidades.model
             return result;
         }
 
-        public static Dictionary<string, PropertyInfo> getPrimaryTypes(Type cls)
+        public static Dictionary<string, PropertyInfo> GetPrimaryTypes(Type cls)
         {
             Dictionary<string, PropertyInfo> result = new Dictionary<string, PropertyInfo>();
             System.Object[] attributes;
@@ -43,17 +43,17 @@ namespace Seguranca.Entidades.model
             return result;
         }
 
-        public List<string> getPrimaryKey()
+        public List<string> GetPrimaryKey()
         {
-            return getPrimaryKey(this.GetType());
+            return GetPrimaryKey(this.GetType());
         }
 
-        public Dictionary<string, PropertyInfo> getPrimaryTypes()
+        public Dictionary<string, PropertyInfo> GetPrimaryTypes()
         {
-            return getPrimaryTypes(this.GetType());
+            return GetPrimaryTypes(this.GetType());
         }
 
-        public Dictionary<string, object> getPKValues()
+        public Dictionary<string, object> GetPKValues()
         {
             Dictionary<string, object> result = new Dictionary<string, object>();
             System.Object[] attributes;
@@ -73,21 +73,21 @@ namespace Seguranca.Entidades.model
         {
             get
             {
-                return SegurancaDBContext.instance().Entry(this);
+                return SegurancaDBContext.Instance().Entry(this);
             }
         }
 
-        public object oldValues(string propertyName)
+        public object OldValues(string propertyName)
         {
             return this.Entry.OriginalValues[propertyName];
         }
 
-        public T oldValues<T>(string propertyName)
+        public T OldValues<T>(string propertyName)
         {
             return (T)this.Entry.OriginalValues[propertyName];
         }
 
-        public Boolean hasChanged(string propertyName)
+        public Boolean HasChanged(string propertyName)
         {
             return !this.Entry.CurrentValues[propertyName].Equals(this.Entry.OriginalValues[propertyName]);
         }

@@ -36,7 +36,7 @@ namespace Seguranca
 
         private void carregarComboModulo()
         {
-            listaModulos = moduloController.findAll();
+            listaModulos = moduloController.FindAll();
             listaModulos.Add(new Modulo(-1, "Selecione..."));
             listaModulos = listaModulos.OrderBy(l => l.ModuloCodigo).ToList();
             cboModulo.DataSource = listaModulos;
@@ -52,7 +52,7 @@ namespace Seguranca
         private void carregarGridView()
         {
             int moduloCodigoSelecionado = (int)cboModulo.SelectedValue;
-            listaFuncionalidade = moduloFuncionalidadeController.findAll().Where(m => m.ModuloCodigo == moduloCodigoSelecionado).ToList();
+            listaFuncionalidade = moduloFuncionalidadeController.FindAll().Where(m => m.ModuloCodigo == moduloCodigoSelecionado).ToList();
             dgvFuncionalidades.DataSource = listaFuncionalidade;
         }
 

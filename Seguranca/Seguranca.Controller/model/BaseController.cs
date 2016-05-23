@@ -20,7 +20,7 @@ namespace Seguranca.Controller.model
         public BaseController(SegurancaDBContext context)
         {
             this.context = context;
-            this.clearQuery();
+            this.ClearQuery();
         }
 
         /// <summary>
@@ -36,28 +36,28 @@ namespace Seguranca.Controller.model
         /// </summary>
         public SegurancaDBContext context { get; set; }
 
-        public virtual ModelClass encontrar(Func<ModelClass, bool> w)
+        public virtual ModelClass Encontrar(Func<ModelClass, bool> w)
         {
-            return this.listarGenerico().FirstOrDefault(w);
+            return this.ListarGenerico().FirstOrDefault(w);
         }
 
-        protected virtual IQueryable<ModelClass> listarGenerico()
+        protected virtual IQueryable<ModelClass> ListarGenerico()
         {
             return this.DbSet;
         }
 
         public virtual int Adicionar(ModelClass model)
         {
-            this.antesAdicionar(model);
-            this.antesSalvar(AcaoController.Adicionar, model);
+            this.AntesAdicionar(model);
+            this.AntesSalvar(AcaoController.Adicionar, model);
             this.DbSet.Add(model);
             return this.context.SaveChanges();
         }
 
-        public virtual int alterar(ModelClass model)
+        public virtual int Alterar(ModelClass model)
         {
-            this.antesAlterar(model);
-            this.antesSalvar(AcaoController.Alterar, model);
+            this.AntesAlterar(model);
+            this.AntesSalvar(AcaoController.Alterar, model);
             this.context.Entry<ModelClass>(model).State = EntityState.Modified;
             return this.context.SaveChanges();
         }
@@ -68,13 +68,13 @@ namespace Seguranca.Controller.model
             return this.context.SaveChanges();
         }
 
-        public virtual void antesAdicionar(ModelClass model)
+        public virtual void AntesAdicionar(ModelClass model)
         { }
 
-        public virtual void antesAlterar(ModelClass model)
+        public virtual void AntesAlterar(ModelClass model)
         { }
 
-        public virtual void antesSalvar(AcaoController acao, ModelClass model)
+        public virtual void AntesSalvar(AcaoController acao, ModelClass model)
         { }
 
         //////////////////////////////////////////////////////////////////////////////////////////////
@@ -83,7 +83,7 @@ namespace Seguranca.Controller.model
         /// Escopo padrão que é aplicado ao controller sempre que inicializado ou que uma query é finalizada.
         /// </summary>
         /// <returns>Objeto padrão IQueryable.</returns>
-        public virtual IQueryable<ModelClass> defaultScope()
+        public virtual IQueryable<ModelClass> DefaultScope()
         {
             return this.DbSet;
         }
@@ -91,61 +91,61 @@ namespace Seguranca.Controller.model
         /// <summary>
         /// Guarda a cache das queries que estão sendo montadas.
         /// </summary>
-        public IQueryable<ModelClass> query { get; protected set; }
+        public IQueryable<ModelClass> Query { get; protected set; }
 
         /// <summary>
         /// Faz a inclusão de um método para que ele EF possa fazer um JOIN.
         /// </summary>
         /// <param name="path">Caminho dividido por "." para que o sistema faça o JOIN.</param>
         /// <returns>A própria referencia do controller.</returns>
-        public BaseController<ModelClass> include(String path)
+        public BaseController<ModelClass> Include(String path)
         {
-            this.query = this.query.Include(path);
+            this.Query = this.Query.Include(path);
             return this;
         }
 
-        public BaseController<ModelClass> include<TProperty>(Expression<Func<ModelClass, TProperty>> property)
+        public BaseController<ModelClass> Include<TProperty>(Expression<Func<ModelClass, TProperty>> property)
         {
-            this.query = this.query.Include(property);
+            this.Query = this.Query.Include(property);
             return this;
         }
 
-        protected BaseController<ModelClass> where(Expression<Func<ModelClass, bool>> where)
+        protected BaseController<ModelClass> Where(Expression<Func<ModelClass, bool>> where)
         {
-            this.query = this.query.Where(where);
+            this.Query = this.Query.Where(where);
             return this;
         }
 
-        public BaseController<ModelClass> orderBy<TKey>(Expression<Func<ModelClass, TKey>> orderBy)
+        public BaseController<ModelClass> OrderBy<TKey>(Expression<Func<ModelClass, TKey>> orderBy)
         {
-            this.query = this.query.OrderBy(orderBy);
+            this.Query = this.Query.OrderBy(orderBy);
             return this;
         }
 
-        protected BaseController<ModelClass> thenBy<TKey>(Expression<Func<ModelClass, TKey>> thenBy)
+        protected BaseController<ModelClass> ThenBy<TKey>(Expression<Func<ModelClass, TKey>> thenBy)
         {
-            this.query = ((IOrderedQueryable<ModelClass>)this.query).ThenBy(thenBy);
+            this.Query = ((IOrderedQueryable<ModelClass>)this.Query).ThenBy(thenBy);
             return this;
         }
 
-        protected BaseController<ModelClass> orderByDescending<TKey>(Expression<Func<ModelClass, TKey>> orderBy)
+        protected BaseController<ModelClass> OrderByDescending<TKey>(Expression<Func<ModelClass, TKey>> orderBy)
         {
-            this.query = this.query.OrderByDescending(orderBy);
+            this.Query = this.Query.OrderByDescending(orderBy);
             return this;
         }
 
-        protected BaseController<ModelClass> thenByDescending<TKey>(Expression<Func<ModelClass, TKey>> thenBy)
+        protected BaseController<ModelClass> ThenByDescending<TKey>(Expression<Func<ModelClass, TKey>> thenBy)
         {
-            this.query = ((IOrderedQueryable<ModelClass>)this.query).ThenByDescending(thenBy);
+            this.Query = ((IOrderedQueryable<ModelClass>)this.Query).ThenByDescending(thenBy);
             return this;
         }
 
         /// <summary>
         /// Limpa a query que está sendo montada.
         /// </summary>
-        public void clearQuery()
+        public void ClearQuery()
         {
-            this.query = this.defaultScope();
+            this.Query = this.DefaultScope();
         }
 
         /// <summary>
@@ -153,14 +153,14 @@ namespace Seguranca.Controller.model
         /// </summary>
         /// <param name="where">Condição para a busca do </param>
         /// <returns></returns>
-        public ModelClass find(Func<ModelClass, bool> where = null)
+        public ModelClass Find(Func<ModelClass, bool> where = null)
         {
             ModelClass result;
             if (where != null)
-                result = this.query.FirstOrDefault(where);
+                result = this.Query.FirstOrDefault(where);
             else
-                result = this.query.FirstOrDefault();
-            this.clearQuery();
+                result = this.Query.FirstOrDefault();
+            this.ClearQuery();
             return result;
         }
 
@@ -169,7 +169,7 @@ namespace Seguranca.Controller.model
         /// </summary>
         /// <param name="pks"></param>
         /// <returns></returns>
-        public ModelClass findBy(IDictionary<string, object> pks)
+        public ModelClass FindBy(IDictionary<string, object> pks)
         {
             // Gera a query automaticamente para fazer todos as condições utilizando o "Equal".
             ParameterExpression peModel = Expression.Parameter(typeof(ModelClass), "model");
@@ -186,10 +186,10 @@ namespace Seguranca.Controller.model
                     eBody = Expression.And(eBody, Expression.Equal(lExp, rExp));
             }
             MethodCallExpression whereCallExpression = Expression.Call(
-                typeof(Queryable), "Where", new Type[] { this.query.ElementType }, this.query.Expression,
+                typeof(Queryable), "Where", new Type[] { this.Query.ElementType }, this.Query.Expression,
                 Expression.Lambda<Func<ModelClass, bool>>(eBody, new ParameterExpression[] { peModel }));
-            this.query = this.query.Provider.CreateQuery<ModelClass>(whereCallExpression);
-            return this.find();
+            this.Query = this.Query.Provider.CreateQuery<ModelClass>(whereCallExpression);
+            return this.Find();
         }
 
         /// <summary>
@@ -199,7 +199,7 @@ namespace Seguranca.Controller.model
         /// <returns>A instância do modelo encontrado. Caso não encontrado retornará nulo.</returns>
         public ModelClass FindByPk(params object[] keyValues)
         {
-            List<String> keyFields = CustomModel.getPrimaryKey(typeof(ModelClass));
+            List<String> keyFields = CustomModel.GetPrimaryKey(typeof(ModelClass));
             if (keyFields.Count != keyValues.Count())
                 throw new ArgumentException("Parameters and primary key count don't match.");
 
@@ -207,7 +207,7 @@ namespace Seguranca.Controller.model
             for (int i = 0; i < keyFields.Count; i++)
                 keys[keyFields[i]] = keyValues[i];
 
-            return this.findBy(keys);
+            return this.FindBy(keys);
         }
 
         /// <summary>
@@ -217,11 +217,11 @@ namespace Seguranca.Controller.model
         /// <param name="offset">Quantidade de deve ser pulada.</param>
         /// <param name="count">Quantidade de registros que devem ser retornados.</param>
         /// <returns>Uma lista de registros que combinam com as condições </returns>
-        public List<ModelClass> findAll(Expression<Func<ModelClass, bool>> where, int? offset = null, int? count = null)
+        public List<ModelClass> FindAll(Expression<Func<ModelClass, bool>> where, int? offset = null, int? count = null)
         {
             if (where != null)
-                this.where(where);
-            return this.findAll(offset, count);
+                this.Where(where);
+            return this.FindAll(offset, count);
         }
 
         /// <summary>
@@ -230,27 +230,27 @@ namespace Seguranca.Controller.model
         /// <param name="offset">Quantidade de deve ser pulada.</param>
         /// <param name="count">Quantidade de registros que devem ser retornados.</param>
         /// <returns></returns>
-        public List<ModelClass> findAll(int? offset = null, int? count = null)
+        public List<ModelClass> FindAll(int? offset = null, int? count = null)
         {
             List<ModelClass> result;
 
             if (offset.HasValue && count.HasValue)
-                result = this.query.Skip(offset.Value).Take(count.Value).ToList();
+                result = this.Query.Skip(offset.Value).Take(count.Value).ToList();
             else if (count.HasValue)
-                result = this.query.Take(count.Value).ToList();
+                result = this.Query.Take(count.Value).ToList();
             else if (offset.HasValue)
-                result = this.query.Skip(offset.Value).ToList();
+                result = this.Query.Skip(offset.Value).ToList();
             else
-                result = this.query.ToList();
+                result = this.Query.ToList();
 
-            this.clearQuery();
+            this.ClearQuery();
             return result;
         }
 
         public bool exists()
         {
-            Boolean result = this.query.Any();
-            this.clearQuery();
+            Boolean result = this.Query.Any();
+            this.ClearQuery();
             return result;
         }
 
@@ -258,19 +258,19 @@ namespace Seguranca.Controller.model
         /// Conta quantos registros batem com a query e não limpa a expressão da consulta.
         /// </summary>
         /// <returns></returns>
-        public int countAndDontClear()
+        public int CountAndDontClear()
         {
-            return this.query.Count();
+            return this.Query.Count();
         }
 
         /// <summary>
         /// Conta quantos registros batem com a query. Depois limpa a mesma.
         /// </summary>
         /// <returns></returns>
-        public int count()
+        public int Count()
         {
-            int result = this.query.Count();
-            clearQuery();
+            int result = this.Query.Count();
+            ClearQuery();
             return result;
         }
 
@@ -278,7 +278,7 @@ namespace Seguranca.Controller.model
         /// Cria uma instância do modelo controlado por este controller já anexada ao seu DbSet.
         /// </summary>
         /// <returns>Instância do modelo deste controller.</returns>
-        public ModelClass create()
+        public ModelClass Create()
         {
             return this.DbSet.Create();
         }

@@ -16,7 +16,7 @@ namespace Seguranca.Controller.model
         {
             get
             {
-                return SegurancaDBContext.instance();
+                return SegurancaDBContext.Instance();
             }
         }
     }

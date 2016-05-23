@@ -21,13 +21,5 @@ namespace Seguranca.Entidades
 
         [Required(ErrorMessage = "Senha não informada!")]
         public string UsuarioNome { get; set; }
-
-
-        //public virtual ICollection<ModuloFuncionalidade> ModuloFuncionalidade { get; set; }
-
-        //public Usuario()
-        //{
-        //    ModuloFuncionalidade = new HashSet<ModuloFuncionalidade>();
-        //}
     }
 }

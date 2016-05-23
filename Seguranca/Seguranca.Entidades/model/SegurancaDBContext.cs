@@ -16,15 +16,15 @@ namespace Seguranca.Entidades.model
 
         public SegurancaDBContext() : base() { }
 
-        public static string getConnectionString()
+        public static string GetConnectionString()
         {
             return "Data Source=localhost;Initial Catalog=Seg;Persist Security Info=True;User ID=Agenda;pwd=Agenda#";
 
         }
 
-        public static SegurancaDBContext instance()
+        public static SegurancaDBContext Instance()
         {
-            SegurancaDBContext databaseConnection = new SegurancaDBContext(getConnectionString());
+            SegurancaDBContext databaseConnection = new SegurancaDBContext(GetConnectionString());
             databaseConnection.Database.ExecuteSqlCommand("SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;");
             return databaseConnection;
         }

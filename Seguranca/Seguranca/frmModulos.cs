@@ -33,7 +33,7 @@ namespace Seguranca
         private void carregarGridView()
         {
             listaModulos = new List<Modulo>();
-            listaModulos = moduloController.findAll();
+            listaModulos = moduloController.FindAll();
             dgvModulos.AutoGenerateColumns = false;
             dgvModulos.DataSource = listaModulos;
         }
