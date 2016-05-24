@@ -25,7 +25,7 @@ namespace SegurancaComand
                     case 0:
                         break;
                     case 1:
-                        menu.MenuModulos();
+                        menu.MenuModulo();
                         break;
                     case 2:
                         menu.MenuFuncionalidade();

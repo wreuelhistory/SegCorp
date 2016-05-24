@@ -45,7 +45,7 @@ namespace Seguranca.Entidades.model
 
         public DbSet<Modulo> modulos { get; set; }
         public DbSet<ModuloFuncionalidade> moduloFuncionalides { get; set; }
-        public DbSet<Usuario> usuarios { get; set; }
+        
 
     }
 }

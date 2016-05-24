@@ -33,7 +33,7 @@ namespace SegurancaComand
             }
         }
 
-        public void MenuModulos()
+        public void MenuModulo()
         {
             moduloOperacoes = new ModuloOperacoes();
             int qtdMaximaOpcoes = 4;

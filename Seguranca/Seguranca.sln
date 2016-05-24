@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Seguranca.Entidades", "Segu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Seguranca.Controller", "Seguranca.Controller\Seguranca.Controller.csproj", "{88E2C1AA-32D6-4A9A-8175-9591DC0E948E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Seguranca", "Seguranca\Seguranca.csproj", "{113A4AF8-E41F-45AB-BF3C-FF17A9E6BA77}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SegurancaComand", "SegurencaComand\SegurancaComand.csproj", "{88E28F66-2C50-472F-931F-207024D123EB}"
 EndProject
 Global
@@ -25,10 +23,6 @@ Global
 		{88E2C1AA-32D6-4A9A-8175-9591DC0E948E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{88E2C1AA-32D6-4A9A-8175-9591DC0E948E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{88E2C1AA-32D6-4A9A-8175-9591DC0E948E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{113A4AF8-E41F-45AB-BF3C-FF17A9E6BA77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{113A4AF8-E41F-45AB-BF3C-FF17A9E6BA77}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{113A4AF8-E41F-45AB-BF3C-FF17A9E6BA77}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{113A4AF8-E41F-45AB-BF3C-FF17A9E6BA77}.Release|Any CPU.Build.0 = Release|Any CPU
 		{88E28F66-2C50-472F-931F-207024D123EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{88E28F66-2C50-472F-931F-207024D123EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{88E28F66-2C50-472F-931F-207024D123EB}.Release|Any CPU.ActiveCfg = Release|Any CPU

@@ -22,12 +22,12 @@ namespace Seguranca.Entidades
 
         public virtual Modulo Modulo { get; set; }
 
-        public virtual ICollection<Usuario> Usuario { get; set; }
+        //public virtual ICollection<Usuario> Usuario { get; set; }
 
-        public ModuloFuncionalidade()
-        {
-            Usuario = new HashSet<Usuario>();
-        }
+        //public ModuloFuncionalidade()
+        //{
+        //    Usuario = new HashSet<Usuario>();
+        //}
 
     }
 }
